@@ -2,32 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Umoja V2 – Official Token</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UMOJA V2 | Official Token</title>
+  <meta
+    name="description"
+    content="Umoja V2 is a community-driven BNB Chain token powering a future ecosystem for global remittance, DeFi rewards and real-world utility."
+  />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-8z9CFq1vN7qVxwjOQKxgLwY8vZl+QKp98K6G5vO3SYJEe0b7MK5uKQHQ+dK2Gm8Gc9pF0RZ6e1R7vIF9nN1A3A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
     :root {
-      --bg: #02030a;
-      --bg-alt: #050818;
+      --bg: #040814;
+      --bg-alt: #070d1f;
+      --card: #0c152b;
       --accent: #00d47e;
-      --accent-soft: rgba(0, 212, 126, 0.18);
-      --text-main: #ffffff;
-      --text-sub: #c4c7d1;
-      --card: #070a1e;
-      --border: #151a2f;
+      --accent-soft: rgba(0, 212, 126, 0.16);
+      --accent-2: #1f8bff;
+      --text: #f7f9ff;
+      --text-muted: #a3b0d0;
+      --border: rgba(255, 255, 255, 0.06);
+      --shadow-soft: 0 18px 60px rgba(0, 0, 0, 0.65);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-pill: 999px;
+      --transition-fast: 0.2s ease-out;
+      --transition-medium: 0.3s ease-out;
+      --nav-height: 76px;
+    }
+
+    /* Light mode */
+    body.light {
+      --bg: #f5f7ff;
+      --bg-alt: #ffffff;
+      --card: #ffffff;
+      --text: #111623;
+      --text-muted: #5a6885;
+      --border: rgba(10, 18, 40, 0.08);
+      --shadow-soft: 0 12px 40px rgba(15, 23, 42, 0.16);
     }
 
     * {
       box-sizing: border-box;
-      scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Arial,
-        sans-serif;
-      background: radial-gradient(circle at top, #071022 0, #02030a 55%);
-      color: var(--text-main);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #152349 0, #040814 40%, #02030a 100%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    body.light {
+      background: linear-gradient(160deg, #e4efff 0%, #f5f7ff 40%, #ecf4ff 100%);
     }
 
     a {
@@ -35,829 +70,1107 @@
       text-decoration: none;
     }
 
-    /* NAVBAR */
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+    .container {
+      width: min(1180px, 100% - 32px);
+      margin: 0 auto;
+    }
+
     header {
       position: sticky;
       top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(20px);
-      background: linear-gradient(
-        to bottom,
-        rgba(3, 6, 20, 0.95),
-        rgba(3, 6, 20, 0.8),
-        transparent
-      );
-      border-bottom: 1px solid rgba(21, 26, 47, 0.7);
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.75), transparent);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     }
 
     .nav {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 14px 20px;
+      height: var(--nav-height);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 18px;
     }
 
-    .logo-3d {
+    .brand {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .logo-orb {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #ffffff, #00d2ff, #0052ff);
-      box-shadow:
-        0 0 25px rgba(0, 212, 255, 0.45),
-        0 0 60px rgba(0, 212, 126, 0.35);
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 30% 10%, #4cf5ff 0, #006bff 40%, #001432 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 900;
-      font-size: 24px;
-      color: #02030a;
+      box-shadow: 0 12px 40px rgba(0, 123, 255, 0.65);
+      position: relative;
+      overflow: hidden;
     }
 
-    .logo-text-main {
-      font-weight: 700;
-      letter-spacing: 0.06em;
+    .brand-logo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 10%, rgba(255, 255, 255, 0.4), transparent 40%);
+      opacity: 0.9;
+    }
+
+    .brand-logo span {
+      position: relative;
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: 1px;
+    }
+
+    .brand-text h1 {
       font-size: 18px;
+      line-height: 1.1;
     }
 
-    .logo-tagline {
+    .brand-text span {
+      display: block;
       font-size: 11px;
-      color: var(--text-sub);
-      text-transform: uppercase;
+      color: var(--text-muted);
       letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
     .nav-links {
       display: flex;
+      align-items: center;
       gap: 18px;
       font-size: 14px;
-      color: var(--text-sub);
     }
 
     .nav-links a {
-      padding: 6px 10px;
+      padding: 6px 12px;
       border-radius: 999px;
-      transition: 0.2s;
+      color: var(--text-muted);
+      transition: color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
     }
 
     .nav-links a:hover {
-      color: var(--text-main);
-      background: rgba(0, 212, 126, 0.08);
+      color: var(--text);
+      background: rgba(148, 163, 184, 0.14);
+      transform: translateY(-1px);
     }
 
-    /* HERO */
-    .hero {
-      max-width: 1120px;
-      margin: 40px auto 30px;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
-      gap: 26px;
+    .nav-links a.btn-nav {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #020617;
+      font-weight: 600;
+      padding-inline: 16px;
+      box-shadow: 0 12px 32px rgba(0, 212, 126, 0.5);
+    }
+
+    .nav-links a.btn-nav:hover {
+      opacity: 0.93;
+    }
+
+    .nav-actions {
+      display: flex;
       align-items: center;
+      gap: 8px;
     }
 
-    .hero-title {
-      font-size: 38px;
-      line-height: 1.15;
-      margin-bottom: 10px;
+    .toggle-theme {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(15, 23, 42, 0.8);
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
     }
 
-    .hero-highlight {
+    body.light .toggle-theme {
+      background: #ffffff;
+    }
+
+    .toggle-theme:hover {
+      transform: translateY(-1px);
       color: var(--accent);
     }
 
-    .hero-sub {
-      font-size: 15px;
-      color: var(--text-sub);
-      max-width: 480px;
+    .menu-toggle {
+      display: none;
+      font-size: 20px;
+      cursor: pointer;
     }
 
-    .hero-buttons {
-      margin-top: 24px;
+    /* Hero */
+    .section {
+      padding: 60px 0;
+    }
+
+    .hero {
+      padding-top: 40px;
+      padding-bottom: 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 4px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.35), transparent 55%);
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .badge i {
+      color: var(--accent);
+    }
+
+    .hero h2 {
+      font-size: clamp(34px, 4vw, 42px);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero h2 span {
+      background: linear-gradient(120deg, #4cf5ff, #00d47e, #43ffb0);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .hero-cta {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
+      margin-bottom: 20px;
     }
 
-    .btn-primary,
-    .btn-outline {
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 12px 20px;
-      border-radius: 999px;
-      border: 1px solid transparent;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 500;
+      border-radius: var(--radius-pill);
+      padding: 9px 18px;
+      border: 1px solid transparent;
       cursor: pointer;
-      transition: 0.2s;
-      text-decoration: none;
+      transition: background var(--transition-medium), color var(--transition-medium), transform var(--transition-medium), border-color var(--transition-medium), box-shadow var(--transition-medium);
+      white-space: nowrap;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #00d47e, #00e9ff);
-      color: #02030a;
-      box-shadow: 0 0 25px rgba(0, 212, 126, 0.4);
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #020617;
+      box-shadow: 0 14px 40px rgba(0, 212, 126, 0.6);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 0 40px rgba(0, 212, 126, 0.6);
+      box-shadow: 0 18px 50px rgba(0, 212, 126, 0.7);
     }
 
     .btn-outline {
-      background: rgba(5, 9, 25, 0.9);
-      border-color: rgba(70, 78, 120, 0.7);
-      color: var(--text-sub);
+      border-color: rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.5);
+      color: var(--text-muted);
+    }
+
+    body.light .btn-outline {
+      background: #ffffff;
     }
 
     .btn-outline:hover {
       border-color: var(--accent);
       color: var(--accent);
+      transform: translateY(-1px);
     }
 
-    .hero-metrics {
-      margin-top: 24px;
+    .hero-meta {
       display: flex;
       flex-wrap: wrap;
       gap: 18px;
-      font-size: 13px;
-      color: var(--text-sub);
-    }
-
-    .metric-pill span:first-child {
-      color: var(--text-main);
-      font-weight: 600;
-    }
-
-    .hero-card {
-      background: radial-gradient(circle at top, #081633, #050818);
-      border-radius: 18px;
-      padding: 20px;
-      border: 1px solid var(--border);
-      box-shadow: 0 22px 60px rgba(1, 3, 12, 0.9);
-    }
-
-    .hero-card-title {
-      font-size: 15px;
-      margin-bottom: 12px;
-    }
-
-    .address-pill {
-      background: #02030a;
-      padding: 12px 14px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      font-family: "SF Mono", ui-monospace, Menlo, monospace;
       font-size: 12px;
-      word-break: break-all;
-      color: #e4e7f2;
+      color: var(--text-muted);
     }
 
-    .badge-bnb {
-      display: inline-block;
-      padding: 4px 10px;
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-meta span i {
+      color: var(--accent);
+    }
+
+    .card-hero {
+      background: radial-gradient(circle at 0 0, rgba(37, 99, 235, 0.35), transparent 50%), var(--card);
+      border-radius: 24px;
+      padding: 22px 22px 18px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-hero::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 10% 0, rgba(59, 130, 246, 0.36), transparent 55%),
+        radial-gradient(circle at 90% 100%, rgba(16, 185, 129, 0.3), transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .card-hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .token-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
       border-radius: 999px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.4);
       font-size: 11px;
-      background: rgba(255, 222, 122, 0.1);
-      color: #ffda4a;
-      margin-bottom: 6px;
+      margin-bottom: 16px;
     }
 
-    /* SECTIONS */
-    section {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 40px 20px 10px;
+    .token-chip span.badge-green {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 11px;
     }
 
+    .hero-token-logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 28px;
+      margin-bottom: 16px;
+      background: radial-gradient(circle at 20% 0, #4cf5ff, #1f8bff 40%, #002a5f 85%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 60px rgba(37, 99, 235, 0.75);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-token-logo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 25% 0, rgba(255, 255, 255, 0.55), transparent 40%);
+      opacity: 0.9;
+    }
+
+    .hero-token-logo span {
+      position: relative;
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .stat {
+      padding: 9px 10px;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      font-size: 11px;
+    }
+
+    body.light .stat {
+      background: #f8fafc;
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .stat-value {
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .contract-box {
+      margin-top: 6px;
+      padding: 9px 10px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px dashed rgba(148, 163, 184, 0.5);
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .contract-address {
+      font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      color: var(--text-muted);
+      overflow-wrap: anywhere;
+    }
+
+    .btn-copy {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--text-muted);
+      font-size: 11px;
+      padding: 4px 9px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-copy:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 14px;
+      font-size: 11px;
+      color: var(--text-muted);
+      gap: 8px;
+    }
+
+    .pill-soft {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.65);
+      padding: 4px 9px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .pill-soft i {
+      color: var(--accent);
+      font-size: 10px;
+    }
+
+    /* Sub sections */
     .section-title {
       font-size: 24px;
       margin-bottom: 8px;
-      text-align: left;
     }
 
-    .section-sub {
+    .section-subtitle {
       font-size: 14px;
-      color: var(--text-sub);
+      color: var(--text-muted);
       margin-bottom: 22px;
-      text-align: left;
-      max-width: 700px;
     }
 
-    .card-grid {
+    .grid-2 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 26px;
     }
 
     .card {
       background: var(--card);
-      border-radius: 16px;
-      padding: 18px 18px 20px;
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 16px;
       border: 1px solid var(--border);
-    }
-
-    .card h3 {
-      margin: 0 0 6px;
-      font-size: 16px;
-    }
-
-    .card p {
-      margin: 0;
-      font-size: 13px;
-      color: var(--text-sub);
-    }
-
-    .tag {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      font-size: 11px;
-      background: rgba(0, 212, 126, 0.08);
-      color: var(--accent);
-    }
-
-    /* LIVE CHART */
-    .chart-frame {
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: #050818;
-      height: 420px;
-    }
-
-    .chart-frame iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    .chart-note {
-      font-size: 11px;
-      color: var(--text-sub);
-      margin-top: 6px;
-    }
-
-    /* STAKING */
-    .staking-tiers {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-
-    .staking-card {
-      background: radial-gradient(circle at top left, #06122e, #050818);
-      border-radius: 16px;
-      padding: 18px;
-      border: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .staking-card::after {
-      content: "";
-      position: absolute;
-      inset: -30%;
-      background: radial-gradient(
-        circle at top right,
-        rgba(0, 212, 126, 0.2),
-        transparent 55%
-      );
-      opacity: 0.7;
-      pointer-events: none;
-    }
-
-    .staking-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      position: relative;
-      z-index: 1;
-    }
-
-    .staking-apy {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .staking-term {
-      font-size: 12px;
-      color: var(--text-sub);
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-    }
-
-    .staking-body {
-      margin-top: 12px;
-      font-size: 13px;
-      color: var(--text-sub);
-      position: relative;
-      z-index: 1;
-    }
-
-    .staking-body ul {
-      padding-left: 18px;
-      margin: 6px 0 0;
-    }
-
-    .staking-body li {
-      margin-bottom: 4px;
-    }
-
-    .btn-stake {
-      margin-top: 14px;
-      position: relative;
-      z-index: 1;
-      padding: 10px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(0, 212, 126, 0.65);
-      background: rgba(0, 212, 126, 0.12);
-      color: var(--accent);
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .btn-stake:hover {
-      background: rgba(0, 212, 126, 0.2);
-    }
-
-    /* TOKENOMICS */
-    .tokenomics-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.7fr);
-      gap: 22px;
+      box-shadow: var(--shadow-soft);
     }
 
     .tokenomics-list {
-      font-size: 13px;
-      color: var(--text-sub);
+      list-style: none;
+      font-size: 14px;
+      color: var(--text-muted);
     }
 
     .tokenomics-list li {
-      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
     }
 
-    .progress-bar {
-      width: 100%;
-      height: 8px;
+    .tokenomics-list li:last-child {
+      border-bottom: none;
+    }
+
+    .tag {
+      font-size: 11px;
       border-radius: 999px;
-      background: #0b0f24;
-      overflow: hidden;
-      margin-top: 6px;
+      padding: 3px 8px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #00e9ff, #00d47e);
-      width: 12%; /* liquidity share – adjust if needed */
+    .tag i {
+      font-size: 10px;
+      color: var(--accent);
     }
 
-    /* ROADMAP */
-    .roadmap-grid {
+    .roadmap {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
+      gap: 14px;
     }
 
     .roadmap-item {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 16px 16px 18px;
-      border: 1px solid var(--border);
-    }
-
-    .roadmap-phase {
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.3);
       font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--accent);
-      margin-bottom: 6px;
     }
 
-    .roadmap-item ul {
-      margin: 6px 0 0;
-      padding-left: 18px;
-      font-size: 13px;
-      color: var(--text-sub);
+    body.light .roadmap-item {
+      background: #f9fafb;
     }
 
-    /* WHITEPAPER */
-    .whitepaper-card {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 18px 18px 20px;
+    .roadmap-item h4 {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .roadmap-item span {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* Chart + How to Buy */
+    iframe.chart-embed {
+      width: 100%;
+      min-height: 380px;
+      border-radius: var(--radius-lg);
       border: 1px solid var(--border);
+      background: #020617;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .how-steps {
+      list-style: none;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .how-steps li {
+      margin-bottom: 8px;
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-width: 640px;
-    }
-
-    .whitepaper-pill {
-      display: inline-flex;
-      align-items: center;
       gap: 8px;
-      padding: 8px 12px;
+    }
+
+    .how-steps li span {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
       border-radius: 999px;
-      background: rgba(0, 212, 126, 0.12);
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
       color: var(--accent);
-      font-size: 12px;
-      font-weight: 600;
-      width: fit-content;
     }
 
-    .whitepaper-card p {
-      font-size: 13px;
-      color: var(--text-sub);
-      margin: 0;
-    }
-
-    /* FOOTER */
     footer {
-      margin-top: 40px;
-      padding: 22px 16px 26px;
-      text-align: center;
+      border-top: 1px solid rgba(148, 163, 184, 0.2);
+      padding: 18px 0 26px;
       font-size: 12px;
-      color: var(--text-sub);
-      border-top: 1px solid var(--border);
-      background: #02030b;
+      color: var(--text-muted);
+      background: rgba(2, 6, 23, 0.96);
+      margin-top: 40px;
     }
 
-    @media (max-width: 840px) {
-      .hero {
-        grid-template-columns: 1fr;
+    body.light footer {
+      background: #e5edff;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .socials {
+      display: flex;
+      gap: 10px;
+    }
+
+    .socials a {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .socials a:hover {
+      background: var(--accent);
+      color: #020617;
+      border-color: transparent;
+      transform: translateY(-1px);
+    }
+
+    /* Responsive */
+    @media (max-width: 880px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
       }
       .hero {
-        margin-top: 24px;
+        padding-top: 24px;
       }
-      .tokenomics-grid {
-        grid-template-columns: 1fr;
+    }
+
+    @media (max-width: 780px) {
+      header {
+        background: rgba(2, 6, 23, 0.98);
       }
       .nav-links {
-        display: none; /* keep nav simple on mobile */
+        position: absolute;
+        top: var(--nav-height);
+        right: 16px;
+        background: rgba(2, 6, 23, 0.98);
+        border-radius: 16px;
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        padding: 10px 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 210px;
+        transform-origin: top right;
+        transform: scaleY(0.8);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--transition-medium), transform var(--transition-medium);
+      }
+      body.light .nav-links {
+        background: #ffffff;
+      }
+      .nav-links.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: scaleY(1);
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .nav-links a.btn-nav {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-meta {
+        flex-direction: column;
       }
     }
   </style>
 </head>
 
 <body>
-  <!-- NAVBAR -->
   <header>
-    <nav class="nav">
-      <div class="logo-3d">
-        <div class="logo-orb">U</div>
-        <div>
-          <div class="logo-text-main">UMOJA V2</div>
-          <div class="logo-tagline">BNB CHAIN • COMMUNITY TOKEN</div>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-logo">
+          <span>U</span>
+        </div>
+        <div class="brand-text">
+          <h1>Umoja V2</h1>
+          <span>BNB Chain • UMJ</span>
         </div>
       </div>
 
-      <div class="nav-links">
-        <a href="#chart">Chart</a>
-        <a href="#staking">Staking</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
         <a href="#tokenomics">Tokenomics</a>
         <a href="#roadmap">Roadmap</a>
-        <a href="#whitepaper">Whitepaper</a>
+        <a href="#chart">Chart</a>
+        <a href="#how-to-buy">How to Buy</a>
+        <a href="#docs">Docs</a>
+        <a href="https://pancakeswap.finance/swap?outputCurrency=0x8D6A79567a701FCe55b62C15d0fbB765913ac84a&chainId=56" target="_blank" rel="noopener" class="btn-nav">
+          Buy on PancakeSwap
+        </a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="toggle-theme" id="themeToggle" title="Toggle light / dark">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fa-solid fa-bars"></i>
+        </button>
       </div>
-    </nav>
+    </div>
   </header>
 
   <!-- HERO -->
-  <section class="hero">
-    <div>
-      <div class="hero-title">
-        The <span class="hero-highlight">UMOJA V2</span> community is
-        just getting started.
-      </div>
-      <div class="hero-sub">
-        3-month global sell lock. Growing liquidity. Real holders who
-        believe in Umoja ni nguvu — unity is strength.
-      </div>
-
-      <div class="hero-buttons">
-        <!-- BUY BUTTON – PancakeSwap -->
-        <a
-          class="btn-primary"
-          href="https://pancakeswap.finance/swap?outputCurrency=0x8D6A79567a701FCe55b62C15d0fbB765913ac84a&chainId=56"
-          target="_blank"
-          rel="noopener"
-        >
-          🚀 Buy UMOJA V2 on PancakeSwap
-        </a>
-
-        <a class="btn-outline" href="#staking">
-          💠 Stake & Earn (coming)
-        </a>
-      </div>
-
-      <div class="hero-metrics">
-        <div class="metric-pill">
-          <span>$4.8M+</span> <span>MCAP (live)</span>
-        </div>
-        <div class="metric-pill">
-          <span>$119k+</span> <span>Locked Liquidity</span>
-        </div>
-        <div class="metric-pill">
-          <span>400+</span> <span>Holders</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-card">
-      <div class="badge-bnb">BSC • BEP20</div>
-      <div class="hero-card-title">Official Token Contract</div>
-      <div class="address-pill">
-        0x8D6A79567a701FCe55b62C15d0fbB765913ac84a
-      </div>
-      <p
-        style="
-          margin-top: 10px;
-          font-size: 12px;
-          color: var(--text-sub);
-          line-height: 1.4;
-        "
-      >
-        Always double-check the contract before you buy. This is the only
-        official Umoja V2 token on BNB Smart Chain.
-      </p>
-    </div>
-  </section>
-
-  <!-- LIVE CHART -->
-  <section id="chart">
-    <h2 class="section-title">Live Chart</h2>
-    <p class="section-sub">
-      Track every green candle in real time. Use the DEXTools chart below
-      for volume, liquidity and on-chain trades.
-    </p>
-
-    <div class="chart-frame">
-      <!-- 👉 Replace src with your real DEXTools widget link when ready -->
-      <iframe
-        src="https://www.dextools.io/app/en/bnb/pair-explorer"
-        title="UMOJA V2 Live Chart"
-      ></iframe>
-    </div>
-    <div class="chart-note">
-      *Update the iframe URL with your official DEXTools widget link for
-      the exact UMOJA V2 pair.
-    </div>
-  </section>
-
-  <!-- STAKING -->
-  <section id="staking">
-    <h2 class="section-title">Staking Vaults</h2>
-    <p class="section-sub">
-      Lock your UMOJA V2 and let time work for you. Three tiers, all
-      designed around the 3-month global sell lock.
-    </p>
-
-    <div class="staking-tiers">
-      <!-- 90 DAYS -->
-      <div class="staking-card">
-        <div class="staking-header">
-          <div>
-            <div class="staking-term">VAULT #1</div>
-            <div class="staking-apy">90 Days</div>
-          </div>
-          <div style="font-size: 12px; color: var(--text-sub)">
-            Low risk • Flexible start
-          </div>
-        </div>
-
-        <div class="staking-body">
-          Earn boosted UMOJA rewards for every full 90-day lock.
-          <ul>
-            <li>Perfect for new holders</li>
-            <li>Aligned with sell-lock period</li>
-            <li>Rewards paid in UMOJA V2</li>
-          </ul>
-        </div>
-
-        <button class="btn-stake">Connect Wallet (soon)</button>
-      </div>
-
-      <!-- 180 DAYS -->
-      <div class="staking-card">
-        <div class="staking-header">
-          <div>
-            <div class="staking-term">VAULT #2</div>
-            <div class="staking-apy">180 Days</div>
-          </div>
-          <div style="font-size: 12px; color: var(--text-sub)">
-            Higher yield • Long-term
-          </div>
-        </div>
-
-        <div class="staking-body">
-          For believers who want to commit for half a year.
-          <ul>
-            <li>Tiered APR higher than 90-day</li>
-            <li>Stronger price stability</li>
-            <li>Compounding strategy friendly</li>
-          </ul>
-        </div>
-
-        <button class="btn-stake">Connect Wallet (soon)</button>
-      </div>
-
-      <!-- 365 DAYS -->
-      <div class="staking-card">
-        <div class="staking-header">
-          <div>
-            <div class="staking-term">VAULT #3</div>
-            <div class="staking-apy">365 Days</div>
-          </div>
-          <div style="font-size: 12px; color: var(--text-sub)">
-            Diamond hands • Max loyalty
-          </div>
-        </div>
-
-        <div class="staking-body">
-          A full year of unity with the Umoja ecosystem.
-          <ul>
-            <li>Highest staking APR tier</li>
-            <li>Helps secure deep liquidity</li>
-            <li>Built for serious long-term holders</li>
-          </ul>
-        </div>
-
-        <button class="btn-stake">Connect Wallet (soon)</button>
-      </div>
-    </div>
-
-    <p
-      style="
-        margin-top: 14px;
-        font-size: 11px;
-        color: var(--text-sub);
-        max-width: 640px;
-      "
-    >
-      *UI is ready. Smart contract & on-chain staking logic will plug in
-      here so holders can stake directly from this page.
-    </p>
-  </section>
-
-  <!-- TOKENOMICS -->
-  <section id="tokenomics">
-    <h2 class="section-title">Tokenomics</h2>
-    <p class="section-sub">
-      Simple, transparent and community-driven. Total supply is hard-capped
-      and liquidity is locked to protect early believers.
-    </p>
-
-    <div class="tokenomics-grid">
+  <main id="hero" class="hero section">
+    <div class="container hero-grid">
       <div>
-        <div class="card">
-          <h3>Total Supply</h3>
-          <p>1,000,000,000 UMOJA V2 (1B)</p>
-          <div class="tag">Hard-capped</div>
+        <div class="badge">
+          <i class="fa-solid fa-bolt"></i> Live on BNB Chain • CA Verified
         </div>
 
-        <div class="card" style="margin-top: 14px">
-          <h3>Distribution (example – editable)</h3>
-          <ul class="tokenomics-list">
-            <li>🔹 70% – Community & public holders</li>
-            <li>🔹 12% – Liquidity pool (locked)</li>
-            <li>🔹 8% – Ecosystem & staking rewards</li>
-            <li>🔹 5% – Marketing & partnerships</li>
-            <li>🔹 5% – Team (vested)</li>
-          </ul>
-        </div>
-      </div>
+        <h2>
+          The Community-Backed <span>Umoja V2</span> Token
+        </h2>
 
-      <div class="card">
-        <h3>Liquidity & Circulating Supply</h3>
-        <p class="tokenomics-list">
-          • Liquidity locked on PancakeSwap (V2 / V3 pools).<br />
-          • 100% of tokens are in circulation — no hidden mints.<br />
-          • Pool grows over time via buys, fees and strategic adds.
+        <p>
+          Umoja V2 (UMJ) is a deflationary BNB Chain token built by the diaspora and friends of Africa.  
+          Our mission: reward early holders, build deep liquidity, and power future products like Umoja
+          remittance, staking and real-world utilities.
         </p>
 
-        <div style="margin-top: 14px">
-          <div style="font-size: 12px; color: var(--text-sub)">
-            Approximate share of supply currently in liquidity:
+        <div class="hero-cta">
+          <a href="https://pancakeswap.finance/swap?outputCurrency=0x8D6A79567a701FCe55b62C15d0fbB765913ac84a&chainId=56" target="_blank" rel="noopener" class="btn btn-primary">
+            <i class="fa-solid fa-cart-shopping"></i> Buy UMJ on PancakeSwap
+          </a>
+
+          <a href="#chart" class="btn btn-outline">
+            <i class="fa-solid fa-chart-line"></i> View Live Chart
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span><i class="fa-solid fa-lock"></i> LP locked • Contract renounced</span>
+          <span><i class="fa-solid fa-users"></i> 400+ early holders</span>
+          <span><i class="fa-solid fa-globe"></i> Supported by diaspora in 40+ regions</span>
+        </div>
+      </div>
+
+      <!-- Right side card -->
+      <div class="card-hero">
+        <div class="card-hero-inner">
+          <div class="token-chip">
+            <span class="badge-green">Live</span>
+            <span>UMOJA V2 • UMJ</span>
           </div>
-          <div class="progress-bar">
-            <div class="progress-fill"></div>
+
+          <div class="hero-token-logo">
+            <span>U</span>
           </div>
-          <div
-            style="
-              margin-top: 4px;
-              font-size: 12px;
-              color: var(--text-sub);
-            "
-          >
-            ~1.2% in pool now — target is to keep increasing over time.
+
+          <div class="hero-stats">
+            <div class="stat">
+              <div class="stat-label">Market Cap</div>
+              <div class="stat-value" id="mcVal">$4.8M+</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Liquidity</div>
+              <div class="stat-value">$115k+</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Holders</div>
+              <div class="stat-value">400+ wallets</div>
+            </div>
+          </div>
+
+          <div class="contract-box">
+            <div class="contract-address" id="contractAddress">
+              0x8D6A79567a701FCe55b62C15d0fbB765913ac84a
+            </div>
+            <button class="btn-copy" id="copyBtn">
+              <i class="fa-solid fa-copy"></i> Copy
+            </button>
+          </div>
+
+          <div class="card-footer">
+            <span class="pill-soft">
+              <i class="fa-solid fa-shield-halved"></i>
+              Community driven • No team dump
+            </span>
+            <span class="pill-soft">
+              <i class="fa-solid fa-fire-flame-curved"></i>
+              Designed for long-term growth
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container grid-2">
+      <div>
+        <h3 class="section-title">What is Umoja V2?</h3>
+        <p class="section-subtitle">
+          Umoja means “unity”. Umoja V2 is a next-generation token built to unite the African diaspora,
+          investors and communities around a common goal: real, transparent, on-chain value.
+        </p>
+
+        <div class="card">
+          <p style="font-size: 14px; color: var(--text-muted);">
+            • <strong>BNB Chain token:</strong> lightning-fast, low fees, accessible worldwide. <br />
+            • <strong>Strong liquidity:</strong> LP locked and monitored live via DEXTools. <br />
+            • <strong>Transparent supply:</strong> fixed 1,000,000,000 UMJ. No hidden mints. <br />
+            • <strong>Future utility:</strong> staking, remittance discounts, agent rewards and more.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="section-title">Core Values</h3>
+        <div class="card">
+          <ul class="how-steps">
+            <li>
+              <span><i class="fa-solid fa-heart"></i></span>
+              <div>
+                <strong>Community First</strong><br />UMJ is powered by real people: refugees, workers,
+                entrepreneurs and families who believe in crypto education and fair opportunities.
+              </div>
+            </li>
+            <li>
+              <span><i class="fa-solid fa-lock"></i></span>
+              <div>
+                <strong>Security & Trust</strong><br />We favor locked liquidity, transparent on-chain proof
+                and clear communication over hype and mystery.
+              </div>
+            </li>
+            <li>
+              <span><i class="fa-solid fa-arrow-trend-up"></i></span>
+              <div>
+                <strong>Long-Term Vision</strong><br />UMJ is designed to support real products like Umoja
+                remittance, staking, and agent networks in Africa and abroad.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOKENOMICS & ROADMAP -->
+  <section id="tokenomics" class="section">
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <h3 class="section-title">Tokenomics</h3>
+          <p class="section-subtitle">
+            Simple, transparent supply. No complicated reflections or hidden taxes – designed for clarity and
+            deep liquidity.
+          </p>
+
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <span class="tag">
+                <i class="fa-solid fa-coins"></i> Symbol: UMJ
+              </span>
+              <span class="tag">
+                <i class="fa-solid fa-layer-group"></i> Chain: BNB Smart Chain
+              </span>
+            </div>
+
+            <ul class="tokenomics-list">
+              <li>
+                <span>Total Supply</span>
+                <strong>1,000,000,000 UMJ</strong>
+              </li>
+              <li>
+                <span>Circulating Supply</span>
+                <strong>100%</strong>
+              </li>
+              <li>
+                <span>Liquidity Allocation</span>
+                <strong>Deep LP on PancakeSwap</strong>
+              </li>
+              <li>
+                <span>Trading Tax</span>
+                <strong>0% / 0% (current)</strong>
+              </li>
+              <li>
+                <span>Contract</span>
+                <strong>0x8D6A...c84a</strong>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="roadmap">
+          <h3 class="section-title">Roadmap</h3>
+          <p class="section-subtitle">
+            The roadmap is dynamic and community-driven. As Umoja V2 grows, we will keep updating milestones.
+          </p>
+
+          <div class="card roadmap">
+            <div class="roadmap-item">
+              <h4>Phase 1 – Foundation</h4>
+              <span>
+                Token launch • Initial liquidity • LP lock • DEXTools & listing sites • Early community growth via
+                WhatsApp, Telegram & TikTok.
+              </span>
+            </div>
+            <div class="roadmap-item">
+              <h4>Phase 2 – Ecosystem & Staking</h4>
+              <span>
+                Staking contracts • Long-term holder rewards • Agent onboarding for remittance pilots •
+                integration with Umoja remittance brand.
+              </span>
+            </div>
+            <div class="roadmap-item">
+              <h4>Phase 3 – Remittance & Real-World Utility</h4>
+              <span>
+                Web3 remittance front-end • Agent dashboards • Fee discounts for UMJ holders • cross-border
+                payout partners.
+              </span>
+            </div>
+            <div class="roadmap-item">
+              <h4>Phase 4 – Scaling & Governance</h4>
+              <span>
+                DAO-style governance for upgrades and treasuries • global partnerships • listing expansions
+                and more.
+              </span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ROADMAP -->
-  <section id="roadmap">
-    <h2 class="section-title">Roadmap</h2>
-    <p class="section-sub">
-      UMOJA V2 is more than a meme. It’s a structured journey from early
-      liquidity to real-world remittance utility.
-    </p>
+  <!-- CHART + HOW TO BUY -->
+  <section id="chart" class="section">
+    <div class="container grid-2">
+      <div>
+        <h3 class="section-title">Live Chart</h3>
+        <p class="section-subtitle">
+          Track price, liquidity and volume directly from DEXTools. Always verify the contract before buying.
+        </p>
 
-    <div class="roadmap-grid">
-      <div class="roadmap-item">
-        <div class="roadmap-phase">Phase 1 • Foundation</div>
-        <h3>Launch & Community</h3>
-        <ul>
-          <li>Token launch & initial liquidity</li>
-          <li>Sell lock activated for 3 months</li>
-          <li>DexTools, social media & website</li>
-        </ul>
+        <div class="card" style="padding: 6px;">
+          <!-- Replace src with your exact DEXTools widget URL if needed -->
+          <iframe
+            class="chart-embed"
+            src="https://www.dextools.io/widget-chart/en/bnb/pe-light/0x8D6A79567a701FCe55b62C15d0fbB765913ac84a?theme=dark&chartType=2&chartResolution=15"
+            sandbox="allow-same-origin allow-scripts allow-popups"
+          ></iframe>
+        </div>
       </div>
 
-      <div class="roadmap-item">
-        <div class="roadmap-phase">Phase 2 • Growth</div>
-        <h3>Listings & Staking</h3>
-        <ul>
-          <li>Staking vaults go live</li>
-          <li>CMC / CG tracking applications</li>
-          <li>Influencer & diaspora campaigns</li>
-        </ul>
-      </div>
+      <div id="how-to-buy">
+        <h3 class="section-title">How to Buy UMJ</h3>
+        <p class="section-subtitle">
+          Umoja V2 is live on PancakeSwap (BNB Chain). Follow these simple steps to join the community.
+        </p>
 
-      <div class="roadmap-item">
-        <div class="roadmap-phase">Phase 3 • Utility</div>
-        <h3>UMOJA Ecosystem</h3>
-        <ul>
-          <li>Integration with remittance brand</li>
-          <li>Agent network incentives in UMOJA</li>
-          <li>Payment & reward use-cases</li>
-        </ul>
-      </div>
+        <div class="card">
+          <ul class="how-steps">
+            <li>
+              <span>1</span>
+              <div>
+                Install a BNB Chain wallet (e.g. <strong>MetaMask</strong> or <strong>Trust Wallet</strong>) and fund it
+                with BNB.
+              </div>
+            </li>
+            <li>
+              <span>2</span>
+              <div>
+                Click the button below to open the official PancakeSwap link with the contract
+                pre-loaded.
+              </div>
+            </li>
+            <li>
+              <span>3</span>
+              <div>
+                Set the token to <strong>UMJ</strong>, choose your amount of BNB, review the price and slippage, then
+                confirm the swap.
+              </div>
+            </li>
+            <li>
+              <span>4</span>
+              <div>
+                After the transaction confirms, add the UMJ contract to your wallet to see your balance:
+                <strong>0x8D6A79567a701FCe55b62C15d0fbB765913ac84a</strong>.
+              </div>
+            </li>
+          </ul>
 
-      <div class="roadmap-item">
-        <div class="roadmap-phase">Phase 4 • Expansion</div>
-        <h3>Scaling & Governance</h3>
-        <ul>
-          <li>Cross-chain exploration</li>
-          <li>DAO-style community voting</li>
-          <li>Tiered loyalty system for top holders</li>
-        </ul>
+          <div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 10px;">
+            <a
+              href="https://pancakeswap.finance/swap?outputCurrency=0x8D6A79567a701FCe55b62C15d0fbB765913ac84a&chainId=56"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-primary"
+              style="width: 100%; justify-content: center;"
+            >
+              <i class="fa-solid fa-cart-shopping"></i> Buy UMJ on PancakeSwap
+            </a>
+            <a
+              href="https://www.dextools.io/app/en/bnb/pair-explorer/0xb9f..."
+              target="_blank"
+              rel="noopener"
+              class="btn btn-outline"
+              style="width: 100%; justify-content: center;"
+            >
+              <i class="fa-solid fa-up-right-from-square"></i> Open in DEXTools
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- WHITEPAPER -->
-  <section id="whitepaper">
-    <h2 class="section-title">Whitepaper</h2>
-    <p class="section-sub">
-      A full breakdown of the vision, tokenomics, security model and
-      remittance use-cases behind Umoja V2.
-    </p>
+  <!-- DOCS / WHITEPAPER -->
+  <section id="docs" class="section">
+    <div class="container grid-2">
+      <div>
+        <h3 class="section-title">Documentation</h3>
+        <p class="section-subtitle">
+          As the project grows, all technical details and audits will be maintained in open documentation
+          for the community.
+        </p>
 
-    <div class="whitepaper-card">
-      <div class="whitepaper-pill">
-        📄 UMOJA V2 Whitepaper
+        <div class="card">
+          <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">
+            • <strong>Whitepaper:</strong> Coming soon (PDF download) <br />
+            • <strong>Token contract:</strong> 0x8D6A79567a701FCe55b62C15d0fbB765913ac84a <br />
+            • <strong>Staking & rewards:</strong> designed with fixed-term locks (90 / 180 / 365 days). UI will be
+            released in a dedicated staking portal.
+          </p>
+          <a href="#" class="btn btn-outline" style="pointer-events: none; opacity: 0.6;">
+            <i class="fa-solid fa-file-pdf"></i> Whitepaper – coming soon
+          </a>
+        </div>
       </div>
-      <p>
-        Download the latest version of our whitepaper to understand how
-        UMOJA V2 connects crypto rails with real-world money flows for the
-        African diaspora and beyond.
-      </p>
 
-      <!-- When you upload your PDF, name it whitepaper.pdf and this link will work -->
-      <a
-        class="btn-primary"
-        style="width: fit-content; margin-top: 4px"
-        href="whitepaper.pdf"
-        target="_blank"
-      >
-        Download PDF
-      </a>
-
-      <p style="font-size: 11px">
-        *Replace <code>whitepaper.pdf</code> in the repo with your official
-        document to activate this button.
-      </p>
+      <div>
+        <h3 class="section-title">Important Notice</h3>
+        <div class="card">
+          <p style="font-size: 13px; color: var(--text-muted);">
+            • Umoja V2 (UMJ) is a high-risk digital asset. Only invest what you can afford to lose. <br /><br />
+            • This website does not offer financial, legal or tax advice. Always do your own research (DYOR)
+            before buying any token. <br /><br />
+            • Beware of fake contracts and scam groups. Always verify the official contract address:
+            <strong>0x8D6A79567a701FCe55b62C15d0fbB765913ac84a</strong>.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    © 2025 UMOJA V2 Ecosystem — All Rights Reserved • Built for the
-    diaspora.
+    <div class="container footer-inner">
+      <div>
+        © 2025 Umoja V2 • All rights reserved.
+      </div>
+      <div class="socials">
+        <a href="https://t.me/UmojaCommunity" target="_blank" rel="noopener" title="Telegram">
+          <i class="fa-brands fa-telegram"></i>
+        </a>
+        <a href="mailto:partnerships@umoja.global" title="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="https://www.dextools.io" target="_blank" rel="noopener" title="DEXTools">
+          <i class="fa-solid fa-chart-line"></i>
+        </a>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById("themeToggle");
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+      const icon = themeToggle.querySelector("i");
+      if (document.body.classList.contains("light")) {
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+      } else {
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
+      }
+    });
+
+    // Mobile nav toggle
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => navLinks.classList.remove("open"));
+    });
+
+    // Copy contract address
+    const copyBtn = document.getElementById("copyBtn");
+    const contractAddressEl = document.getElementById("contractAddress");
+    copyBtn.addEventListener("click", async () => {
+      try {
+        const text = contractAddressEl.textContent.trim();
+        await navigator.clipboard.writeText(text);
+        copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied';
+        setTimeout(() => {
+          copyBtn.innerHTML = '<i class="fa-solid fa-copy"></i> Copy';
+        }, 1600);
+      } catch (e) {
+        alert("Copy failed. Please copy manually.");
+      }
+    });
+  </script>
 </body>
 </html>
